@@ -1,6 +1,13 @@
 <h1>Sign up</h1>
-
 <%= form_with model: @user, url: sign_up_path do |form| %>
+  <% if @user.errors.any? %>
+    <div class='alert alert-danger'>
+      <% @user.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  <% end %>
+
   <div class='mb-3'>
     <%= form.label :email, class: "form-label" %>
     <%= form.email_field :email, class: "form-control", placeholder: "jon@doe.com" %>
@@ -14,6 +21,6 @@
     <%= form.password_field :password_confirmation, class: "form-control", placeholder: "password" %>
   </div>
   <div class='mb-3'>
-    <%= form.submit "Sign Up", class: "btn btn-primary" %>
+    <%= form.submit "Sign Up", class: "btn btn-primary", data: { turbo: false } %>
   </div>
 <% end %>
