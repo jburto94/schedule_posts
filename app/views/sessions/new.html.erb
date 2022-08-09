@@ -1,6 +1,7 @@
 <h1>Log in</h1>
 <%= form_with url: sign_in_path do |form| %>
- <div class='mb-3'>
+
+  <div class='mb-3'>
     <%= form.label :email, class: "form-label" %>
     <%= form.email_field :email, class: "form-control", placeholder: "jon@doe.com" %>
   </div>
