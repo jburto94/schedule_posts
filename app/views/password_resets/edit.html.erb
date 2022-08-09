@@ -1,0 +1,15 @@
+<h1>Create new password</h1>
+
+<%= form_with model: @user, url: password_reset_edit_path(token: params[:token]) do |form| %>
+  <div class='mb-3'>
+    <%= form.label :password, class: "form-label" %>
+    <%= form.password_field :password, class: "form-control", placeholder: "password" %>
+  </div>
+  <div class='mb-3'>
+    <%= form.label :password_confirmation, class: "form-label" %>
+    <%= form.password_field :password_confirmation, class: "form-control", placeholder: "password" %>
+  </div>
+  <div class='mb-3'>
+    <%= form.submit "Create new password", class: "btn btn-primary", data: { turbo: false } %>
+  </div>
+<% end %>
